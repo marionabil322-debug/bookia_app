@@ -14,25 +14,59 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/Successmark.svg
-  String get successmark => 'assets/icons/Successmark.svg';
+  /// File path: assets/icons/bookmark.svg
+  String get bookmark => 'assets/icons/bookmark.svg';
+
+  /// File path: assets/icons/fluent_eye-20-filled.svg
+  String get fluentEye20Filled => 'assets/icons/fluent_eye-20-filled.svg';
+
+  /// File path: assets/icons/home.svg
+  String get home => 'assets/icons/home.svg';
 
   /// File path: assets/icons/logo.svg
   String get logo => 'assets/icons/logo.svg';
 
+  /// File path: assets/icons/profile.svg
+  String get profile => 'assets/icons/profile.svg';
+
+  /// File path: assets/icons/search-normal.svg
+  String get searchNormal => 'assets/icons/search-normal.svg';
+
+  /// File path: assets/icons/successmark.svg
+  String get successmark => 'assets/icons/successmark.svg';
+
+  /// File path: assets/icons/vector.svg
+  String get vector => 'assets/icons/vector.svg';
+
   /// List of all assets
-  List<String> get values => [successmark, logo];
+  List<String> get values => [
+    bookmark,
+    fluentEye20Filled,
+    home,
+    logo,
+    profile,
+    searchNormal,
+    successmark,
+    vector,
+  ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+
+  /// File path: assets/images/splach_android12.png
+  AssetGenImage get splachAndroid12 =>
+      const AssetGenImage('assets/images/splach_android12.png');
 
   /// File path: assets/images/splach_background.png
   AssetGenImage get splachBackground =>
       const AssetGenImage('assets/images/splach_background.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [splachBackground];
+  List<AssetGenImage> get values => [logo, splachAndroid12, splachBackground];
 }
 
 class $AssetsTranslationsGen {
