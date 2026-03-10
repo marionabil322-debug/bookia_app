@@ -10,7 +10,7 @@ class AuthRepo {
   }) async {
     try {
       final response = await _dio.post(
-        'https://api.codingarabic.online/api/login',
+        'https://codingarabic.online/api/login',
         data: {"email": email, "password": password},
       );
 

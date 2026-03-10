@@ -1,3 +1,5 @@
+import 'package:bookia/features/home/presentation/widgets/book_itam.dart';
+import 'package:bookia/features/home/presentation/widgets/books_grid_view.dart';
 import 'package:bookia/features/home/presentation/widgets/home_app_bar.dart';
 import 'package:bookia/features/home/presentation/widgets/home_slider.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +12,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 12.0.w),
-      child: Column(
+      child: ListView(
         children: [
           HomeAppBar(),
           SizedBox(height: 20.h),
           HomeSlider(),
+          SizedBox(height: 20.h),
+          BooksGridView(),
         ],
       ),
     );

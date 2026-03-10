@@ -1,3 +1,4 @@
+import 'package:bookia/features/home/data/models/books_model.dart';
 import 'package:bookia/features/home/data/models/slider_model.dart';
 import 'package:dio/dio.dart';
 
@@ -11,6 +12,21 @@ class HomeRepo {
       );
       if (response.statusCode == 200) {
         return SliderModel.fromJason(response.data);
+      } else {
+        return null;
+      }
+    } catch (error) {
+      return null;
+    }
+  }
+
+  static Future<BooksModel?> getBestSellerBooks() async {
+    try {
+      final response = await _dio.get(
+        "https://codingarabic.online/api/products-bestseller",
+      );
+      if (response.statusCode == 200) {
+        return BooksModel.fromJson(response.data);
       } else {
         return null;
       }

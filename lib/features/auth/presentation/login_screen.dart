@@ -47,13 +47,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 32.h),
                 AppTextFormField(
                   controller: emailController,
-                  hintText: "Email",
+                  hintText: "Enter Your Email",
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 20.h),
                 AppTextFormField(
                   controller: passwordcontroller,
-                  hintText: "Password",
+                  hintText: "Enter Your Password",
                   keyboardType: TextInputType.visiblePassword,
                   isPassword: true,
                 ),
