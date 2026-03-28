@@ -2,7 +2,6 @@ import 'package:bookia/core/theme/app_color.dart';
 import 'package:bookia/features/cart/presentation/cart_screen.dart';
 import 'package:bookia/features/home/cubit/cubit/home_cubit.dart';
 import 'package:bookia/features/home/presentation/home_screen.dart';
-import 'package:bookia/features/home/presentation/widgets/home_app_bar.dart';
 import 'package:bookia/features/profile/presentation/profile_screen.dart';
 import 'package:bookia/features/wishlist/presentation/wishlist_screen.dart';
 import 'package:bookia/gen/assets.gen.dart';
@@ -22,8 +21,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
   List<Widget> screens = [
     BlocProvider(
-      create: (context) => HomeCubit()..getHomeData()
-       
+      create: (context) => HomeCubit()..getHomeData(),
+
       child: HomeScreen(),
     ),
     WishlistScreen(),

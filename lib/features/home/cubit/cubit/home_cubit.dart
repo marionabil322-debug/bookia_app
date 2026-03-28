@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bookia/features/cart/data/repo/cart_repo.dart';
 import 'package:bookia/features/home/data/models/books_model.dart';
 import 'package:bookia/features/home/data/models/slider_model.dart';
 import 'package:bookia/features/home/data/repo/home_repo.dart';
@@ -31,6 +32,16 @@ class HomeCubit extends Cubit<HomeState> {
       emit(GetBestSellerSuccess(response.data?.products ?? []));
     } else {
       emit(GetBestSellerError());
+    }
+  }
+
+  Future<void> addToCart(int bookId) async {
+    emit(AddToCartLoading());
+    final response = await CartRepo.addToCart(bookId);
+    if (response is String) {
+      emit(AddToCartSuccess(response));
+    } else {
+      emit(AddToCartError() as HomeState);
     }
   }
 }

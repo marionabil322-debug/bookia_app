@@ -22,3 +22,12 @@ final class GetBestSellerSuccess extends HomeState {
 }
 
 final class GetBestSellerError extends HomeState {}
+
+final class AddToCartSuccess extends HomeState {
+  final String message;
+  AddToCartSuccess(this.message);
+}
+
+final class AddToCartError extends HomeState {}
+
+final class AddToCartLoading extends HomeState {}
