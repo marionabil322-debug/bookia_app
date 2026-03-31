@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bookia/core/networking/api_result.dart';
 import 'package:bookia/features/cart/data/repo/cart_repo.dart';
 import 'package:bookia/features/home/data/models/books_model.dart';
 import 'package:bookia/features/home/data/models/slider_model.dart';
@@ -17,11 +18,15 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> getSliders() async {
     emit(GetHomeSliderLoading());
     final response = await HomeRepo.getHomeSliders();
-    if (response is SliderModel) {
-      emit(GetHomeSliderSuccess(response.data?.sliders ?? []));
-    } else {
-      emit(GetHomeSliderError());
-    }
+
+    response.when(
+      success: (data) {
+        emit(GetHomeSliderSuccess(data.data?.sliders ?? []));
+      },
+      error: (error) {
+        emit(GetHomeSliderError(error));
+      },
+    );
   }
 
   // ignore: non_constant_identifier_names

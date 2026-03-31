@@ -1,10 +1,12 @@
+import 'package:bookia/core/networking/api_result.dart';
+import 'package:bookia/core/networking/error_handler.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepo {
   static final Dio _dio = Dio();
-  static Future<bool> login({
+  Future<ApiResult<String>> login({
     required String email,
     required String password,
   }) async {
@@ -16,13 +18,12 @@ class AuthRepo {
 
       if (response.statusCode == 200) {
         await saveToken(response.data['data']['token'].toString());
-        return true;
+        return ApiResult.success(response?.data['message']);
       } else {
-        return false;
+        return ApiResult.error((response?.data['message']));
       }
     } catch (error) {
-      debugPrint(error.toString());
-      return false;
+      return Error(ErrorHandler.handle(error));
     }
   }
 

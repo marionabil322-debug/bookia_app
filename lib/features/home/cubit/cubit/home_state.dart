@@ -5,7 +5,10 @@ sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
 
-final class GetHomeSliderError extends HomeState {}
+final class GetHomeSliderError extends HomeState {
+  final String errorMessage;
+  GetHomeSliderError(this.errorMessage);
+}
 
 final class GetHomeSliderSuccess extends HomeState {
   final List<SliderImage> sliders;

@@ -1,3 +1,5 @@
+import 'package:bookia/core/networking/api_result.dart';
+import 'package:bookia/core/networking/error_handler.dart';
 import 'package:bookia/features/home/data/models/books_model.dart';
 import 'package:bookia/features/home/data/models/slider_model.dart';
 import 'package:dio/dio.dart';
@@ -5,18 +7,18 @@ import 'package:dio/dio.dart';
 class HomeRepo {
   static Dio _dio = Dio();
 
-  static Future<SliderModel?> getHomeSliders() async {
+  static Future<ApiResult<SliderModel>> getHomeSliders() async {
     try {
       final response = await _dio.get(
         "https://codingarabic.online/api/sliders",
       );
       if (response.statusCode == 200) {
-        return SliderModel.fromJason(response.data);
+        return ApiResult.success(SliderModel.fromJason(response.data ?? ""));
       } else {
-        return null;
+        return ApiResult.error(response?.data["message"]);
       }
     } catch (error) {
-      return null;
+      return ApiResult.error(ErrorHandler.handle(error));
     }
   }
 

@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         builder: (context) {
                           return AlertDialog(
                             title: Text('Error!'),
-                            content: Text('Something worng please try again!'),
+                            content: Text(state.errorMessage),
                           );
                         },
                       );

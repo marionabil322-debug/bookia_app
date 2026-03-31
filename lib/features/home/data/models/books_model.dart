@@ -51,7 +51,6 @@ class Product {
     this.image,
     this.category,
   });
-
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
